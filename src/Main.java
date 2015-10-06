@@ -96,119 +96,44 @@ public class Main{
  * x轴排序tle，y轴果断ac
  */
 public class Main {
+    public static int[] a = new int[10010];
 
-    public static void main(String[] args) {
-        new DK().go();
-    }
-}
+    public static void main(String args[]) {
+        Scanner cin = new Scanner(System.in);
+        int n = cin.nextInt();
 
-class Point implements Comparable<Point>{
-    double x;
-    double y;
-
-    public Point() {
-        this.x = 0;
-        this.y = 0;
-    }
-
-    @Override
-    public int compareTo(Point obj) {
-        Point other = obj;
-        if(this.y!=other.y) {//由小到大排序
-            return (int)Math.ceil(this.y - other.y);
+        for (int i = 0; i < n ; i++) {
+            a[i] = cin.nextInt();
         }
-        return (int)Math.ceil(this.x - other.x);
-    }
-}
 
-class DK {
+        int maxfront = 0;
+        int maxtear = 0;
+        int max = -1;
+        int sum = -1;
+        int tear = 0;
+        int front = 0;
 
-    double x;
-    double y;
-    Point point[];
-    int a[];
-
-    public DK(){
-        a = new int[100001];
-    }
-    public void go() {
-        Scanner sc = new Scanner(System.in);
-        while(true) {
-            int n = sc.nextInt();
-            if(0==n) {
-                break;
+        for (int i = 0; i != n; i ++) {
+            if (sum < 0) {
+                sum = a[i];
+                front = i;
+                tear= i;
+            }else {
+                sum += a[i];
+                tear = i;
             }
-            point = new Point[n];
-            for(int i=0; i<n; i++) {
-                point[i] = new Point();
-            }
-            for(int i=0; i<n; i++) {
-                x = sc.nextDouble();
-                y = sc.nextDouble();
-                point[i].x = x;
-                point[i].y = y;
-            }
-            Arrays.sort(point);
-//            for(int i=0; i<n; i++) {
-//                System.out.println(point[i].x+" "+point[i].y);
-//            }
-            a = new int[n];
-            double ans = solve(0,n-1)/2;
-            System.out.println(String.format("%.2f", ans));
-        }
-    }
-    private double solve(int left, int right) {
-        double ans = 1e-7;
-        if(left==right) {
-            return ans;
-        }
-        if(left==right-1) {
-            return distance(point[left], point[right]);
-        }
-        int mid = (left+right)>>1;
-        double ans1 = solve(left,mid);
-        //注意：不是mid+1
-        double ans2 = solve(mid,right);
-        ans = Math.min(ans1,ans2);
-        int j = 0;
-        for(int i=left; i<=right; i++) {
-            if(Math.abs(point[i].y-point[mid].y)<=ans) {
-                a[j++] = i;
+
+            if (sum > max) {
+                max = sum;
+                maxfront = front;
+                maxtear = tear;
             }
         }
-        /*
-         * 加上下面的排序就AC，否则WA，我认为至多TLE，
-         * 因为扫描的是和point[i]最相近的两个矩形2*ans区间
-         */
-        //不知道如何用comparator接口实现间接排序，所以就写了个选择排序
-        mySort(a,j);
-        for(int i=0; i<j; i++) {
-            for(int k=i+1; k<j&&Math.abs(point[a[i]].x - point[a[k]].x)<ans; k++) {
-                double dis = distance(a[i], a[k]);
-                if(ans>dis) {
-                    ans = dis;
-                }
-            }
+
+        if (max < 0) {
+            System.out.println("0 " + a[0] + " " + a[n-1]);
+        }else {
+            System.out.println(max + " " + a[maxfront] + " " +a[maxtear]);
         }
-        return ans;
-    }
-    private void mySort(int[] a, int j) {
-        for(int i=0; i<j; i++) {
-            for(int k=i+1; k<j; k++) {
-                if(point[a[i]].x<point[a[k]].x) {
-                    int temp = a[i];
-                    a[i] = a[k];
-                    a[k] = temp;
-                }
-            }
-        }
-    }
-    private double distance(Point p1, Point p2) {
-        double dis = Math.hypot(p1.x-p2.x, p1.y-p2.y);
-        return dis;
-    }
-    private double distance(int i, int j) {//point搞为成员变量
-        double dis = Math.hypot(point[i].x-point[j].x, point[i].y-point[j].y);
-        return dis;
     }
 }

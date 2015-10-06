@@ -1,5 +1,6 @@
 package t1007;
 
+import java.io.BufferedInputStream;
 import java.util.*;
 
 /**
@@ -11,7 +12,7 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(new BufferedInputStream(System.in));
         int number = 0;
         while (scanner.hasNext()){
             number = scanner.nextInt();
@@ -21,18 +22,16 @@ public class Main {
             double minDis = 0;
             Point[] point = new Point[number];
             for (int i = 0; i < number; i++){
-                point[i] = new Point();
-                point[i].x = scanner.nextDouble();
-                point[i].y = scanner.nextDouble();
+                double x = scanner.nextDouble();
+                double y = scanner.nextDouble();
+                point[i] = new Point(x, y);
             }
 
-            minDis = new Quoit().getMinDis(point);
+            minDis = new Main().getMinDis(point);
             System.out.println(String.format("%.2f", minDis / 2));
         }
+        scanner.close();
     }
-}
-
-class Quoit{
 
     public double getMinDis(Point[] points){
         //先对序列按x轴大小进行排序
@@ -44,29 +43,19 @@ class Quoit{
         double result = 0;
         if (left == right)
             return result;
-        if (left == right - 1)
+        else if (left == right - 1)
             return distance(points[left], points[right]);
-        int mid = (left + right) >> 1;
-        double minL = cal(points, left, mid);
-        double minR = cal(points, mid, right);
-
-        result = Math.min(minL, minR);
-        //选出中线附近，x坐标值相距小于result的坐标点，并记录，后续从这些点中检查出跨线的点距离。
-/*        int j = 0;
-        for (int i = left; i <= right; i++){
-            if (Math.abs(points[i].x - points[mid].x) <= result)
-                close[j++] = i;
+        else if (left == right -2 ){
+            double temp1 = distance(points[left], points[left+1]);
+            double temp2 = distance(points[left], points[right]);
+            double temp3 = distance(points[left+1], points[right]);
+            return min(min(temp1, temp2), temp3);
         }
 
-        Arrays.sort(points, new AscByY());
-        //对y坐标进行排序，并计算
-        for (int i = 0; i < j; i++){
-            for (int k = i + 1; k < j && Math.abs(points[close[k]].y - points[close[i]].y) < result; k++){
-                double distance = distance(points[close[k]], points[close[i]]);
-                if (distance < result)
-                    result = distance;
-            }
-        }*/
+        int mid = (left + right) >> 1;
+        result = min(cal(points, left, mid), cal(points, mid, right));
+
+        //选出中线附近，x坐标值相距小于result的坐标点，并记录，后续从这些点中检查出跨线的点距离。
         ArrayList<Point> nearPoints = new ArrayList<>();
         for (Point point : points){
             if (Math.abs(points[mid].x - point.x) < result){
@@ -74,12 +63,10 @@ class Quoit{
             }
         }
 
+        //对y坐标进行排序，并计算
         Collections.sort(nearPoints, new AscByY());
         for (int i = 0; i < nearPoints.size(); i++){
-            for (int j = i + 1; j < nearPoints.size(); j++){
-                if (nearPoints.get(j).y - nearPoints.get(i).y > result){
-                    break;
-                }
+            for (int j = i + 1; j < nearPoints.size() && nearPoints.get(j).y - nearPoints.get(i).y < result; j++){
                 double nearDis = distance(nearPoints.get(j), nearPoints.get(i));
                 if (nearDis < result){
                     result = nearDis;
@@ -92,6 +79,10 @@ class Quoit{
 
     public double distance(Point pointA, Point pointB){
         return Math.hypot(pointA.x - pointB.x, pointA.y - pointB.y);
+    }
+
+    public double min(double a, double b){
+        return a < b ? a : b;
     }
 
     //以x为基准排序
@@ -119,8 +110,87 @@ class Point {
     double x;
     double y;
 
-    public Point(){
-        this.x = 0;
-        this.y = 0;
+    public Point(double a, double b){
+        x = a;
+        y = b;
     }
 }
+
+/*
+* Java真是给跪了。。。同样的思想，用c++：
+
+#include<iostream>
+#include<cmath>
+#include<algorithm>
+using namespace std;
+int n;
+struct node
+{
+  double x;
+  double y;
+}p[100005];
+
+int a[100005];
+
+double cmpx(node a,node b)
+{
+  return a.x<b.x;
+}
+
+double cmpy(int a,int b)
+{
+  return p[a].y<p[b].y;
+}
+
+double min(double a,double b)
+{
+  return a<b?a:b;
+}
+
+double dis(node a,node b)
+{
+  return sqrt((a.x-b.x)*(a.x-b.x)+(a.y-b.y)*(a.y-b.y));
+}
+
+double find(int l,int r)
+{
+     if(r==l+1)
+      return dis(p[l],p[r]);
+     if(l+2==r)
+      return min(dis(p[l],p[r]),min(dis(p[l],p[l+1]),dis(p[l+1],p[r])));
+     int mid=(l+r)>>1;
+     double ans=min(find(l,mid),find(mid+1,r));
+     int i,j,cnt=0;
+     for(i=l;i<=r;i++)
+     {
+       if(p[i].x>=p[mid].x-ans&&p[i].x<=p[mid].x+ans)
+          a[cnt++]=i;
+     }
+     sort(a,a+cnt,cmpy);
+     for(i=0;i<cnt;i++)
+     {
+       for(j=i+1;j<cnt;j++)
+       {
+         if(p[a[j]].y-p[a[i]].y>=ans) break;
+         ans=min(ans,dis(p[a[i]],p[a[j]]));
+       }
+     }
+     return ans;
+}
+
+int main()
+{
+    int i;
+
+    while(scanf("%d",&n)!=EOF)
+    {
+      if(!n) break;
+      for(i=0;i<n;i++)
+       scanf("%lf %lf",&p[i].x,&p[i].y);
+      sort(p,p+n,cmpx);
+      printf("%.2lf%\n",find(0,n-1)/2);
+    }
+    return 0;
+}
+
+* */
