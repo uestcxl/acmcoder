@@ -25,7 +25,7 @@ public class Main {
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
         double degrees = 0.0;
-        if (scanner.hasNext()){
+        while (scanner.hasNext()){
             degrees = scanner.nextDouble();
             if (degrees == -1){
                 System.exit(0);
