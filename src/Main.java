@@ -54,6 +54,7 @@ public class Main{
 }*/
 
 //1003 Max Sum
+/*
 public class Main{
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
@@ -88,5 +89,42 @@ public class Main{
             if (n != 0)
                 System.out.println();
         }
+    }
+}*/
+
+public class Main {
+
+    public static void main(String[] args) {
+        // write your code here
+        Scanner sc = new Scanner(System.in);
+        int times = sc.nextInt();
+        int caseCount = 0;
+        while(times-- > 0){
+            int num = sc.nextInt();
+            int tmpMax = 0;
+            int max = -10000, left, right;
+            left = right = 1;
+            int i = 0;
+            int flag = 0;
+            while(++i <= num){
+                tmpMax += sc.nextInt();
+                if(tmpMax > max){
+                    max = tmpMax;
+                    right = i;
+                    if(flag != 0){
+                        left = flag;
+                        flag = 0;
+                    }
+                } else if (tmpMax < 0) {
+                    tmpMax = 0;
+                    flag = i + 1;
+                }
+            }
+            System.out.println("Case " + ++caseCount + ":");
+            System.out.println(max + " " + left + " " + right);
+            if(times != 0)
+                System.out.println();
+        }
+        sc.close();
     }
 }
