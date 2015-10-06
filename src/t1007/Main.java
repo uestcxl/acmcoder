@@ -1,8 +1,6 @@
 package t1007;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Created by xl on 15/10/6.
@@ -35,45 +33,57 @@ public class Main {
 }
 
 class Quoit{
-    public Point[] points;
-    public int[] close;
-
-    public Quoit(){
-        close = new int[100001];
-    }
 
     public double getMinDis(Point[] points){
         //先对序列按x轴大小进行排序
-        this.points = points;
-        Arrays.sort(this.points, new AscByX());
-        return cal(0, this.points.length - 1);
+        Arrays.sort(points, new AscByX());
+        return cal(points, 0, points.length - 1);
     }
 
-    public double cal(int left, int right){
+    public double cal(Point[] points, int left, int right){
         double result = 0;
         if (left == right)
             return result;
         if (left == right - 1)
             return distance(points[left], points[right]);
         int mid = (left + right) >> 1;
-        double minL = cal(left, mid);
-        double minR = cal(mid, right);
+        double minL = cal(points, left, mid);
+        double minR = cal(points, mid, right);
 
         result = Math.min(minL, minR);
         //选出中线附近，x坐标值相距小于result的坐标点，并记录，后续从这些点中检查出跨线的点距离。
-        int j = 0;
+/*        int j = 0;
         for (int i = left; i <= right; i++){
             if (Math.abs(points[i].x - points[mid].x) <= result)
                 close[j++] = i;
         }
 
-        //对y坐标进行排序，并计算
         Arrays.sort(points, new AscByY());
+        //对y坐标进行排序，并计算
         for (int i = 0; i < j; i++){
             for (int k = i + 1; k < j && Math.abs(points[close[k]].y - points[close[i]].y) < result; k++){
                 double distance = distance(points[close[k]], points[close[i]]);
                 if (distance < result)
                     result = distance;
+            }
+        }*/
+        ArrayList<Point> nearPoints = new ArrayList<>();
+        for (Point point : points){
+            if (Math.abs(points[mid].x - point.x) < result){
+                nearPoints.add(point);
+            }
+        }
+
+        Collections.sort(nearPoints, new AscByY());
+        for (int i = 0; i < nearPoints.size(); i++){
+            for (int j = i + 1; j < nearPoints.size(); j++){
+                if (nearPoints.get(j).y - nearPoints.get(i).y > result){
+                    break;
+                }
+                double nearDis = distance(nearPoints.get(j), nearPoints.get(i));
+                if (nearDis < result){
+                    result = nearDis;
+                }
             }
         }
 
