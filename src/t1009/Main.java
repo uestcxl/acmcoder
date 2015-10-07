@@ -36,7 +36,7 @@ public class Main {
                 }
                 else {
                     maxBeans += M * 1.0 * wareHouse[i].weight;
-                    M = 0;
+                    break;
                 }
             }
             System.out.println(String.format("%.3f", maxBeans));
