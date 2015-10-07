@@ -92,48 +92,4 @@ public class Main{
     }
 }*/
 
-/*
- * x轴排序tle，y轴果断ac
- */
-public class Main {
-    public static int[] a = new int[10010];
 
-    public static void main(String args[]) {
-        Scanner cin = new Scanner(System.in);
-        int n = cin.nextInt();
-
-        for (int i = 0; i < n ; i++) {
-            a[i] = cin.nextInt();
-        }
-
-        int maxfront = 0;
-        int maxtear = 0;
-        int max = -1;
-        int sum = -1;
-        int tear = 0;
-        int front = 0;
-
-        for (int i = 0; i != n; i ++) {
-            if (sum < 0) {
-                sum = a[i];
-                front = i;
-                tear= i;
-            }else {
-                sum += a[i];
-                tear = i;
-            }
-
-            if (sum > max) {
-                max = sum;
-                maxfront = front;
-                maxtear = tear;
-            }
-        }
-
-        if (max < 0) {
-            System.out.println("0 " + a[0] + " " + a[n-1]);
-        }else {
-            System.out.println(max + " " + a[maxfront] + " " +a[maxtear]);
-        }
-    }
-}
