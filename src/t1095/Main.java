@@ -12,5 +12,6 @@ public class Main {
             System.out.println(scanner.nextInt()+scanner.nextInt());
             System.out.println();
         }
+        scanner.close();
     }
 }
