@@ -92,4 +92,60 @@ public class Main{
     }
 }*/
 
+/*
+public class Main{
+    public static void combination1() {
+            */
+/*全组合：
+             * 思路是利用二进制的特性，每次加1即可遍历所有位的不同情况，很好理解
+            代码同上
+                *//*
 
+        String arr[] = {"a", "b", "c"};
+        int all = arr.length;
+        int nbit = 1 << all;
+        for (int i = 0; i < nbit; i++) {
+            StringBuffer sb = new StringBuffer();
+            for (int j = 0; j < all; j++) {
+                if ((i & (1 << j)) != 0) {
+                    sb.append(arr[j]);
+                }
+            }
+            System.out.println(sb);
+        }
+    }
+    public static void main(String args[]){
+        combination1();
+    }
+}*/
+
+public class Main{
+    public static void permutation(String[] str , int first,int end) {
+        //输出str[first..end]的所有排列方式
+        if(first == end) {    //输出一个排列方式
+            StringBuilder stringBuilder = new StringBuilder();
+            for(int j=0; j<= end ;j++) {
+                stringBuilder.append(str[j]+" ");
+            }
+            System.out.println(stringBuilder.toString().trim());
+        }
+
+        for(int i = first; i <= end ; i++) {
+            swap(str, i, first);
+            permutation(str, first+1, end);  //固定好当前一位，继续排列后面的
+            swap(str, i, first);
+        }
+    }
+
+    private static void swap(String[] str, int i, int first) {
+        String tmp;
+        tmp = str[first];
+        str[first] = str[i];
+        str[i] = tmp;
+    }
+
+    public static void main(String args[]) throws Exception {
+        String[] str = {"a", "b", "c"};
+        permutation(str, 0, str.length - 1);
+    }
+}
