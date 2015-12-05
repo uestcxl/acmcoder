@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e40e4c48-0766-495f-863c-5ed1de6f6db8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Combination.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ShortestPath/ShortestPath.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ShortestPath/pathData" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Acmcoder/t1028/Main.class" afterPath="$PROJECT_DIR$/out/production/Acmcoder/t1028/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Acmcoder/ShortestPath/ShortestPath.class" afterPath="$PROJECT_DIR$/out/production/Acmcoder/ShortestPath/ShortestPath.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ShortestPath/ShortestPath.java" afterPath="$PROJECT_DIR$/src/ShortestPath/ShortestPath.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Acmcoder.iws" />
@@ -40,21 +36,16 @@
       <file leaf-file-name="ShortestPath.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ShortestPath/ShortestPath.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.41787943">
-              <caret line="235" column="13" selection-start-line="235" selection-start-column="13" selection-end-line="235" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.86180425">
+              <caret line="308" column="31" selection-start-line="308" selection-start-column="31" selection-end-line="308" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#readDataFromFile#0;class#ShortestPath#0" expanded="false" />
-                <element signature="method#countChar#0;class#ShortestPath#0" expanded="false" />
-                <element signature="e#2824#2840#0" expanded="true" />
-                <element signature="e#2902#2920#0" expanded="true" />
-                <element signature="e#2969#2977#0" expanded="true" />
-                <element signature="e#3026#3034#0" expanded="true" />
-                <element signature="e#5160#5169#0" expanded="true" />
+                <element signature="method#decomposition#0;class#ShortestPath#0" expanded="false" />
+                <element signature="e#5318#5327#0" expanded="true" />
                 <element signature="method#complment#0;class#ShortestPath#0" expanded="false" />
                 <element signature="method#combination#0;class#ShortestPath#0" expanded="false" />
                 <element signature="method#factorial#0;class#ShortestPath#0" expanded="false" />
-                <element signature="e#9379#9387#0" expanded="true" />
+                <element signature="method#printData#0;class#ShortestPath#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -188,8 +179,8 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -798,7 +789,8 @@
       <workItem from="1445259349630" duration="945000" />
       <workItem from="1449064993930" duration="3822000" />
       <workItem from="1449128399414" duration="19718000" />
-      <workItem from="1449229270276" duration="16920000" />
+      <workItem from="1449229270276" duration="18327000" />
+      <workItem from="1449331124312" duration="4569000" />
     </task>
     <task id="LOCAL-00001" summary="t1006">
       <created>1444119485765</created>
@@ -810,7 +802,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="89920000" />
+    <option name="totallyTimeSpent" value="95896000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -833,12 +825,11 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962447" sideWeight="0.49695387" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29624477" sideWeight="0.49347258" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29207233" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2364395" sideWeight="0.49347258" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29207233" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1695279" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297568" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962447" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -849,6 +840,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962447" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -890,17 +882,12 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#readDataFromFile#0;class#ShortestPath#0" expanded="false" />
-            <element signature="method#countChar#0;class#ShortestPath#0" expanded="false" />
-            <element signature="e#2824#2840#0" expanded="true" />
-            <element signature="e#2902#2920#0" expanded="true" />
-            <element signature="e#2969#2977#0" expanded="true" />
-            <element signature="e#3026#3034#0" expanded="true" />
-            <element signature="e#5160#5169#0" expanded="true" />
+            <element signature="method#decomposition#0;class#ShortestPath#0" expanded="false" />
+            <element signature="e#5318#5327#0" expanded="true" />
             <element signature="method#complment#0;class#ShortestPath#0" expanded="false" />
             <element signature="method#combination#0;class#ShortestPath#0" expanded="false" />
             <element signature="method#factorial#0;class#ShortestPath#0" expanded="false" />
-            <element signature="e#9379#9387#0" expanded="true" />
+            <element signature="method#printData#0;class#ShortestPath#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -942,30 +929,25 @@
           <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#readDataFromFile#0;class#ShortestPath#0" expanded="false" />
-            <element signature="method#countChar#0;class#ShortestPath#0" expanded="false" />
-            <element signature="e#2824#2840#0" expanded="true" />
-            <element signature="e#2902#2920#0" expanded="true" />
-            <element signature="e#2969#2977#0" expanded="true" />
-            <element signature="e#3026#3034#0" expanded="true" />
-            <element signature="e#5160#5169#0" expanded="true" />
+            <element signature="method#decomposition#0;class#ShortestPath#0" expanded="false" />
+            <element signature="e#5318#5327#0" expanded="true" />
             <element signature="method#complment#0;class#ShortestPath#0" expanded="false" />
             <element signature="method#combination#0;class#ShortestPath#0" expanded="false" />
             <element signature="method#factorial#0;class#ShortestPath#0" expanded="false" />
-            <element signature="e#9379#9387#0" expanded="true" />
+            <element signature="method#printData#0;class#ShortestPath#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ShortestPath/pathData">
-      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/t1028/Main.java">
@@ -1081,13 +1063,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0626087">
           <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
         </state>
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/t1006/Main.java">
@@ -1227,7 +1209,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33283132">
           <caret line="122" column="14" selection-start-line="122" selection-start-column="13" selection-end-line="122" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1235,9 +1216,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="36" column="49" selection-start-line="36" selection-start-column="49" selection-end-line="36" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1250,14 +1228,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ShortestPath/pathData">
-      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
+        <state />
       </provider>
     </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_40.jdk/Contents/Home/src.zip!/java/util/Collections.java">
@@ -1286,21 +1264,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ShortestPath/ShortestPath.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41787943">
-          <caret line="235" column="13" selection-start-line="235" selection-start-column="13" selection-end-line="235" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.86180425">
+          <caret line="308" column="31" selection-start-line="308" selection-start-column="31" selection-end-line="308" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#readDataFromFile#0;class#ShortestPath#0" expanded="false" />
-            <element signature="method#countChar#0;class#ShortestPath#0" expanded="false" />
-            <element signature="e#2824#2840#0" expanded="true" />
-            <element signature="e#2902#2920#0" expanded="true" />
-            <element signature="e#2969#2977#0" expanded="true" />
-            <element signature="e#3026#3034#0" expanded="true" />
-            <element signature="e#5160#5169#0" expanded="true" />
+            <element signature="method#decomposition#0;class#ShortestPath#0" expanded="false" />
+            <element signature="e#5318#5327#0" expanded="true" />
             <element signature="method#complment#0;class#ShortestPath#0" expanded="false" />
             <element signature="method#combination#0;class#ShortestPath#0" expanded="false" />
             <element signature="method#factorial#0;class#ShortestPath#0" expanded="false" />
-            <element signature="e#9379#9387#0" expanded="true" />
+            <element signature="method#printData#0;class#ShortestPath#0" expanded="false" />
           </folding>
         </state>
       </provider>

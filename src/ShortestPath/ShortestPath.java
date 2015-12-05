@@ -121,8 +121,14 @@ public class ShortestPath {
         //查找路线1 ＝> 路线2 中的序列
         for (Map.Entry<String, String> entry : oneToTwo.entrySet()){
             //求出第一条路线和第二条路线的全排列（第一条中未加起点0），分别存放在两个set中
-            if (Integer.parseInt(entry.getValue().split(" ")[0]) > 4)
+            boolean isStart = true;
+            for (String strInOne : entry.getKey().split(" ")){
+                if (Integer.parseInt(strInOne) < 4)
+                    isStart = false;
+            }
+            if (isStart)
                 continue;
+
             permutation(entry.getKey().split(" "), 0, entry.getKey().split(" ").length - 1, lineOneList);
             permutation(entry.getValue().split(" "), 0, entry.getValue().split(" ").length -1, lineTwoList);
 
@@ -208,7 +214,8 @@ public class ShortestPath {
      * 固定b，求后面ac的排列：bac，bca，求好后，c放到第一位置，得到cba
      * 固定c，求后面ba的排列：cba，cab。
      */
-/*    public void permutation(String str, String result, int length, Set<String> set){
+    /*
+    public void permutation(String str, String result, int length, Set<String> set){
         if (result.length() == length)
             set.add(result);
         else {
@@ -218,7 +225,8 @@ public class ShortestPath {
                 }
             }
         }
-    }*/
+    }
+    */
 
     /**
      * 求全排列
@@ -230,15 +238,13 @@ public class ShortestPath {
         if(first == end) {    //记录一个排列方式
             StringBuilder builder = new StringBuilder();
             for(int j=0; j<= end ;j++) {
-/*                if (j < end && Math.abs(Integer.parseInt(str[j]) - Integer.parseInt(str[j + 1])) > 3)
-                    return;*/
                 builder.append(str[j]+" ");
             }
             lineSet.add(builder.toString().trim());
         }
 
         for(int i = first; i <= end ; i++) {
-            if (i < end && Math.abs(Integer.parseInt(str[i]) - Integer.parseInt(str[i + 1])) > 4)
+            if (i < end && Math.abs(Integer.parseInt(str[i]) - Integer.parseInt(str[i + 1])) > 5 )
                 return;
             swap(str, i, first);
             permutation(str, first+1, end, lineSet);  //固定好当前一位，继续排列后面的
@@ -291,13 +297,13 @@ public class ShortestPath {
         ShortestPath eg = new ShortestPath();
         eg.readDataFromFile();
 
-//        eg.printData();
-//        System.out.println(eg.allCombination.size());
+/*        eg.printData();
+        System.out.println(eg.allCombination.size());*/
 
-/*        eg.shortestPath(1);
+/*        eg.shortestPath(12);
         System.out.println(eg.lineOne + " " + eg.lineTwo);*/
         System.out.println("\n第一条路线的点数\t第一条最短总长\t第二条最短总长");
-        for (int i = 1; i < (eg.pointCount - 1); i++){
+        for (int i = 7; i < (eg.pointCount - 1); i++){
             eg.lineOne = 0;
             eg.lineTwo = 0;
             eg.shortestPath(i);
